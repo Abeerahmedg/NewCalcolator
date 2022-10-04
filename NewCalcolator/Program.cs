@@ -1,4 +1,5 @@
 ﻿using NewCalcolator;
+using System.Diagnostics.CodeAnalysis;
 using static NewCalcolator.Operations;
 
 double AskForNumber()
@@ -8,6 +9,8 @@ double AskForNumber()
     num = Convert.ToDouble(Console.ReadLine());
     return num;
 }
+
+
  do
 {
     double num1;
@@ -23,14 +26,29 @@ double AskForNumber()
             Console.WriteLine("Choose the number you want: 1- Add single number.\n2- add array");
            int add=Convert.ToInt32(Console.ReadLine());
 
-            while(Console.ReadLine()= 1)
+            if (add == 1)
             {
-            num1 = AskForNumber();
-            num2 = AskForNumber();
+                num1 = AskForNumber();
+                num2 = AskForNumber();
                 result = Addition(num1, num2);
                 Console.WriteLine($"The Result : {num1} + {num2} = " + result);
-           
+
             }
+            else if (add == 2)
+            {
+                Console.WriteLine("How many numbers would you like to get the sum for !");
+                int count = int.Parse(Console.ReadLine());
+                int[]arr = new int[count];
+                for (int i = 0; i < count; i++)
+                {
+                    Console.WriteLine("number{0}:", i + 1);
+                    arr[i] = int.Parse(Console.ReadLine());
+                }
+                result = Addition(arr);
+                Console.WriteLine($"The result of your array = {result}");
+
+            }
+            else Console.WriteLine("Wrong input!");
             break;
 
             
@@ -64,4 +82,5 @@ double AskForNumber()
     Console.WriteLine("Should we continue!(Press Y for Yes and N for No): ");
 } while (Console.ReadLine().ToUpper() == "Y"); // the check condition for the loop
 Console.WriteLine("See You again!");
-Console.ReadKey(); //to read the key press from the user
+Console.ReadKey();
+Environment.Exit(0);//to read the key press from the user

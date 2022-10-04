@@ -14,8 +14,8 @@ namespace NewCalcolator
         }
         public static double Addition(int[] arr)
         {
-            double sum = arr[0];
-            return sum ;
+          
+          return arr.Sum();
         }
        public static double Substract(double num1 , double num2)
         {
@@ -23,8 +23,7 @@ namespace NewCalcolator
         }
         public static double Substract(int[] arr)
         {
-            double sum =arr[0];
-            return sum;
+           return=
         }
         public static double Multiply(double num1, double num2)
         {
