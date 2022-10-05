@@ -8,31 +8,47 @@ namespace NewCalcolator
 {
     public class Operations
     {
-       public static double Addition(double num1 , double num2)
+        public static double Addition(double num1, double num2)
         {
             return num1 + num2;
         }
         public static double Addition(int[] arr)
         {
-          
-          return arr.Sum();
+
+            return arr.Sum();
         }
-       public static double Substract(double num1 , double num2)
+        public static double Subtract(double num1, double num2)
         {
             return num1 - num2;
         }
-        public static double Substract(int[] arr)
+        public static double Subtract(int[] arr)
         {
-           return=
+            double num = arr[0];
+            for (int i = 1; i < arr.Length; i++)
+            {
+                num -= arr[i];
+            }
+            return num;
+
         }
         public static double Multiply(double num1, double num2)
         {
             return num1 * num2;
         }
-        public static double Divide(double num1 ,double num2)
+        public static decimal Divide(decimal num1, decimal num2)
         {
-            return num1 / num2;
+            decimal result = 0;
+            try
+            {
+                result = num1 / num2;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Can not be divided");
+
+            }
+            return result;
         }
+
     }
-  
 }
